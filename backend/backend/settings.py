@@ -39,8 +39,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'drf_spectacular',
+    'rest_framework',
+    'api',
 
 ]
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Quine-ZeroSpoil API',
+    'DESCRIPTION': 'Contains API of inventory management',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,12 +146,12 @@ JAZZMIN_SETTINGS = {
     "site_title": "Admin Panel",
     "site_header": "Admin Panel",
     "site_brand": "Admin Panel",
-    "site_icon": "images/favicon.png",
+    "site_icon": "../media/LOGO.png",
     # Add your own branding here
-    "site_logo": None,
+    "site_logo": "../media/LOGO.png",
     "welcome_sign": "Welcome to the Admin Panel",
     # Copyright on the footer
-    "copyright": "your_site_name",
+    "copyright": "ZeroSpoil",
     "user_avatar": None,
     ############
     # Top Menu #
@@ -144,7 +159,7 @@ JAZZMIN_SETTINGS = {
     # Links to put along the top menu
     "topmenu_links": [
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home Page", "url": "home", "permissions": ["auth.view_user"]},
+        {"name": "ZeroSpoil Home Page", "url": "home", "permissions": ["auth.view_user"]},
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
     ],
@@ -225,3 +240,9 @@ JAZZMIN_UI_TWEAKS = {
 }
 
 JAZZMIN_SETTINGS["show_ui_builder"] = True
+
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored'
+MEDIA_ROOT = BASE_DIR / 'media'
