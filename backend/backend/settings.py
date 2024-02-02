@@ -131,9 +131,9 @@ JAZZMIN_SETTINGS = {
     "site_title": "Admin Panel",
     "site_header": "Admin Panel",
     "site_brand": "Admin Panel",
-    "site_icon": "images/favicon.png",
+    "site_icon": "../media/LOGO.png",
     # Add your own branding here
-    "site_logo": None,
+    "site_logo": "../media/LOGO.png",
     "welcome_sign": "Welcome to the Admin Panel",
     # Copyright on the footer
     "copyright": "your_site_name",
@@ -225,3 +225,9 @@ JAZZMIN_UI_TWEAKS = {
 }
 
 JAZZMIN_SETTINGS["show_ui_builder"] = True
+
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored'
+MEDIA_ROOT = BASE_DIR / 'media'
