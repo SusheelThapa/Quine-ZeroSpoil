@@ -27,4 +27,5 @@ dist-ssr
 .vit
 .yarn
 
-backend/*/__pycache__
+backend/api/__pycache__
+backend/backend/__pycache__
