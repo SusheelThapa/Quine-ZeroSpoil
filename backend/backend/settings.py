@@ -151,7 +151,7 @@ JAZZMIN_SETTINGS = {
     "site_logo": "../media/LOGO.png",
     "welcome_sign": "Welcome to the Admin Panel",
     # Copyright on the footer
-    "copyright": "your_site_name",
+    "copyright": "ZeroSpoil",
     "user_avatar": None,
     ############
     # Top Menu #
@@ -159,7 +159,7 @@ JAZZMIN_SETTINGS = {
     # Links to put along the top menu
     "topmenu_links": [
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home Page", "url": "home", "permissions": ["auth.view_user"]},
+        {"name": "ZeroSpoil Home Page", "url": "home", "permissions": ["auth.view_user"]},
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
     ],
