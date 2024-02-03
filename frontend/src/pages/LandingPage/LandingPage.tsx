@@ -7,6 +7,7 @@ import NewsLetter from "@/components/NewsLetter";
 import Products from "@/components/Products";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import Partners from "@/components/Partners";
 
 const LandingPage = () => {
   return (
@@ -15,8 +16,9 @@ const LandingPage = () => {
         <NavBar />
         <Hero />
         <Products />
-        <Testimonials />
+        <Partners />
         <NewsLetter />
+        <Testimonials />
         <ContactUs />
       </Layout>
       <Footer />
