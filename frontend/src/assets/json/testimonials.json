@@ -1,0 +1,34 @@
+{
+  "partners": [
+    {
+      "avatar": "SJ",
+      "full_name": "Sara Joy",
+      "position": " Cooking Enthusiast",
+      "review": "ZeroSpoil has transformed the way I cook! Sharing recipes with fellow foodies and donating surplus food seamlessly—it's not just an app; it's a community making a real difference."
+    },
+    {
+      "avatar": "MG",
+      "full_name": "Mike Green",
+      "position": "Sustainable Living Advocate",
+      "review": "As someone passionate about sustainable living, ZeroSpoil is a game-changer. It's my go-to for reducing food waste and connecting with a community that shares the same values."
+    },
+    {
+      "avatar": "EY",
+      "full_name": "Emma Yee",
+      "position": "Culinary Explorer",
+      "review": "ZeroSpoil sparks my creativity in the kitchen. From trying new recipes to sharing my cooking adventures, it's a hub of inspiration that encourages mindful cooking and sharing."
+    },
+    {
+      "avatar": "AB",
+      "full_name": "Alex Bieber",
+      "position": "Everyday Cook",
+      "review": "ZeroSpoil simplifies my kitchen routine. I love being part of a community where I can share what's cooking, get inspired, and make a positive impact by donating surplus food effortlessly."
+    },
+    {
+      "avatar": "LG",
+      "full_name": "Lily Green",
+      "position": "Charitable Cook",
+      "review": "For me, ZeroSpoil is more than an app; it's a platform for kindness. Sharing recipes is fun, but the ability to donate leftover food to those in need adds a meaningful layer to my cooking journey."
+    }
+  ]
+}
