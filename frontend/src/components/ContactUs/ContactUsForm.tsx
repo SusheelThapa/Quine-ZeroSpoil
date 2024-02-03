@@ -45,7 +45,7 @@ const ContactForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md focus:border-[#f7941d] focus:border-2 focus:outline-none"
+            className="mt-1 p-2 w-full border-2  rounded-md focus:border-[#f7941d] focus:border-2 focus:outline-none"
             required
           />
         </div>
@@ -63,7 +63,7 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="mt-1 p-2 w-full border rounded-md focus:border-[#f7941d] focus:border-2 focus:outline-none"
+            className="mt-1 p-2 w-full border-2  rounded-md focus:border-[#f7941d] focus:border-2 focus:outline-none"
             required
           ></textarea>
         </div>

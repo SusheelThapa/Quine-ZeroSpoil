@@ -1,3 +1,6 @@
+import Autoplay from "embla-carousel-autoplay";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -6,19 +9,16 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 
 import SJ from "@/assets/img/avatar/SJ.png";
 import MG from "@/assets/img/avatar/MG.png";
 import EY from "@/assets/img/avatar/EY.png";
 import AB from "@/assets/img/avatar/AB.png";
 import LG from "@/assets/img/avatar/LG.png";
-
 import { partners } from "@/assets/json/testimonials.json";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 const Testimonials = () => {
+  
   const avatarImage = (avatar: string) => {
     switch (avatar) {
       case "SJ":
@@ -33,6 +33,7 @@ const Testimonials = () => {
         return LG;
     }
   };
+
   return (
     <div className="my-24 flex justify-center items-center ">
       <div className="ml-20 w-2/5 flex justify-center items-start gap-6 flex-col">

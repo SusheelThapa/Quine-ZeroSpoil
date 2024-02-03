@@ -25,7 +25,7 @@ const NavBar = () => {
       </div>
 
       {/* login button */}
-      <Button className="text-xl bg-green-400 text-black p-4 font-medium hover:bg-green-500 hover:text-white">
+      <Button className="text-xl bg-green-400 text-black p-6 font-medium hover:bg-green-500 hover:text-white">
         <IoLockClosed className="mr-2" />
         Login
       </Button>
