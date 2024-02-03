@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { GiPowerGenerator } from "react-icons/gi";
@@ -46,20 +48,22 @@ const Products = () => {
       <div className="my-10 flex gap-20 justify-center items-center">
         {products.map((product, index) => {
           return (
-            <Card
-              className="w-80 h-96 hover:shadow-xl hover:transform hover:scale-105  transition flex justify-center items-center flex-col cursor-pointer rounded-3xl"
-              key={index}
-            >
-              <CardHeader>
-                <CardTitle className="flex justify-between items-center flex-col gap-8">
-                  {product.icon}
-                  <span className="text-center">{product.title}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center text-gray-500">
-                {product.description}
-              </CardContent>
-            </Card>
+            <Link to={"/recipe-generator"}>
+              <Card
+                className="w-80 h-96 hover:shadow-xl hover:transform hover:scale-105  transition flex justify-center items-center flex-col cursor-pointer rounded-3xl"
+                key={index}
+              >
+                <CardHeader>
+                  <CardTitle className="flex justify-between items-center flex-col gap-8">
+                    {product.icon}
+                    <span className="text-center">{product.title}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-center text-gray-500">
+                  {product.description}
+                </CardContent>
+              </Card>
+            </Link>
           );
         })}
       </div>
