@@ -10,15 +10,17 @@ import Footer from "@/components/Footer";
 
 const LandingPage = () => {
   return (
-    <Layout>
-      <NavBar />
-      <Hero />
-      <Products />
-      <Testimonials />
-      <NewsLetter />
-      <ContactUs />
+    <>
+      <Layout>
+        <NavBar />
+        <Hero />
+        <Products />
+        <Testimonials />
+        <NewsLetter />
+        <ContactUs />
+      </Layout>
       <Footer />
-    </Layout>
+    </>
   );
 };
 
