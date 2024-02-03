@@ -1,6 +1,7 @@
 import { IoLockClosed } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
 import Logo from "@/assets/img/logo.svg";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -25,10 +26,12 @@ const NavBar = () => {
       </div>
 
       {/* login button */}
-      <Button className="text-xl bg-green-400 text-black p-6 font-medium hover:bg-green-500 hover:text-white">
-        <IoLockClosed className="mr-2" />
-        Login
-      </Button>
+      <Link to={"/login"}>
+        <Button className="text-xl bg-green-400 text-black p-6 font-medium hover:bg-green-500 hover:text-white">
+          <IoLockClosed className="mr-2" />
+          Login
+        </Button>
+      </Link>
     </div>
   );
 };
