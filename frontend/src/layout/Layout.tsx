@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-  return <div className="mx-auto mt-5 w-5/6">{children}</div>;
+  return <div className="mx-auto mt-5 w-5/6 bg-white">{children}</div>;
 };
 
 export default Layout;
