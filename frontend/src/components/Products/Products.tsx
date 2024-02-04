@@ -19,6 +19,7 @@ const products = [
     icon: <MdOutlineInventory className="text-green-600" size={65} />,
     description:
       "Ensures you never miss a beat, providing timely alerts on approaching expiration dates, empowering you to use ingredients efficiently and reduce food waste",
+    link: "/expiry-track",
   },
   {
     title: "Community Hub",

@@ -2,12 +2,12 @@ import React from "react";
 
 interface Props {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 const Layout = ({ children, className }: Props) => {
   return (
-    <div className={` ${className}`}>{children}</div>
+    <div className={`${className} mx-auto mt-5 w-5/6`}>{children}</div>
   );
 };
 
