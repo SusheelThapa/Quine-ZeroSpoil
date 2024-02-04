@@ -9,7 +9,6 @@ import {
     TableRow,
 } from '@/components/ui/table';
 
-import product_image from '@/assets/img/avatar/AB.png';
 import { useNavigate } from 'react-router-dom';
 import {
     AlertDialog,
@@ -76,8 +75,8 @@ const ExpiryTrack: React.FC = () => {
         let result
         result = Math.ceil((newEndDate.getTime()-newStartDate.getTime())/(one_day))
         console.log('date Converter result', result)
-        if (result < 0 ) {return 0}
-        return result
+        if (result <= 7 ) {return ', expires in ' + result + ' days' }
+           
       }
     
 
@@ -108,7 +107,7 @@ const ExpiryTrack: React.FC = () => {
                             <TableHead>Expiry Date</TableHead>
                             <TableHead>Purchase Date</TableHead>
                             <TableHead>Quantity</TableHead>
-                            <TableHead>Quantity</TableHead>
+                            <TableHead></TableHead>
 
                         </TableRow>
                     </TableHeader>
@@ -119,7 +118,7 @@ const ExpiryTrack: React.FC = () => {
 
                                 <TableCell className="">{product.product_name}</TableCell>
                                 <TableCell>{product.description}</TableCell>
-                                <TableCell>{product.expiry_date.toLocaleString()} (<span className='text-sm text-red-400 mx-1'>expires in {handleDate(product.purchase_date, product.expiry_date)} days</span>)</TableCell>
+                                <TableCell>{product.expiry_date.toLocaleString()} <span className='text-sm text-red-400 mx-1'> {handleDate(product.purchase_date, product.expiry_date)} </span></TableCell>
                                 <TableCell>{product.purchase_date.toLocaleString()}</TableCell>
                                 <TableCell>{product.quantity}</TableCell>
                                 <TableCell>
