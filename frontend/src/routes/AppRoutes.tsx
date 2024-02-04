@@ -15,8 +15,8 @@ const AppRoutes = () => {
         <Route path="/recipe-generator" element={<RecipeGenerator />} />
         <Route path="/donate-food" element={<DonateFood />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/expiry_track" element={<ExpiryTrack />} />
-        <Route path="/expiry_track/add_item" element={<AddItem />} />
+        <Route path="/expiry-track" element={<ExpiryTrack />} />
+        <Route path="/expiry-track/add-item" element={<AddItem />} />
       </Routes>
     </Router>
   );
