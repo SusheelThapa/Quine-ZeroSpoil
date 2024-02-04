@@ -54,7 +54,7 @@ const AddItem: React.FC = () => {
                     errors: {},
                 });
 
-                navigate('/expiry_track');
+                navigate('/expiry-track');
 
                 // Additional logic after successful submission if needed
 
@@ -83,7 +83,7 @@ const AddItem: React.FC = () => {
 
         // Check if expiry_date is empty
         if (!formData.expiry_date) {
-            errors.expiry_date = "enter valid expiry date";
+            errors.expiry_date = "Enter valid expiry date";
         }
 
         // Check if purchase_date is empty
@@ -119,13 +119,13 @@ const AddItem: React.FC = () => {
                     <ul className="flex gap-10 justify-start items-center font-medium">
                         <li
                             className="hover:text-green-600 cursor-pointer"
-                            onClick={() => navigate('/expiry_track/')}
+                            onClick={() => navigate('/expiry-track/')}
                         >
                             Product list
                         </li>
                         <li
                             className="hover:text-green-600 cursor-pointer"
-                            onClick={() => navigate('/expiry_track/add_item')}
+                            onClick={() => navigate('/expiry-track/add-item')}
                         >
                             Add Item
                         </li>
