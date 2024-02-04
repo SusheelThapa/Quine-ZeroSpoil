@@ -119,6 +119,7 @@ const ExpiryTrack: React.FC = () => {
                                 <TableCell className="">{product.product_name}</TableCell>
                                 <TableCell>{product.description}</TableCell>
                                 <TableCell>{product.expiry_date.toLocaleString()} <span className='text-sm text-red-400 mx-1'> {handleDate(product.purchase_date, product.expiry_date)} </span></TableCell>
+
                                 <TableCell>{product.purchase_date.toLocaleString()}</TableCell>
                                 <TableCell>{product.quantity}</TableCell>
                                 <TableCell>

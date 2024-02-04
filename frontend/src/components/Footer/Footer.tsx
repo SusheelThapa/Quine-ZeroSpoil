@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -35,7 +37,9 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-2">
           <h1 className="text-xl text-white"> Company</h1>
-          <div className="hover:text-white"> Our Team</div>
+          <div className="hover:text-white">
+            <Link to="/our-team"> Our Team</Link>
+          </div>
           <div className="hover:text-white">Partner</div>
           <div className="hover:text-white">FAQ</div>
         </div>
