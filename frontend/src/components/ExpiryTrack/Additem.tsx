@@ -8,18 +8,25 @@ interface FormData {
     expiry_date: string;
     purchase_date: string;
     quantity: string;
+    notes: string;
     errors?: Record<string, string>;
 }
 
+
 const AddItem: React.FC = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState<FormData>({
         product_name: '',
         description: '',
         expiry_date: '',
         purchase_date: '',
         quantity: '',
+        notes: '',
         errors: {},
     });
+
+
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,8 +38,9 @@ const AddItem: React.FC = () => {
             console.log("form is valid ")
             try {
                 // Your form submission logic here using the formData state
-                
-                const response = await axios.post("http://localhost:8000/api/FormDatas/", formData);
+
+                await axios.post("http://localhost:8000/api/expirytrackers/", formData)
+                    .then(() => console.log("successful post request"))
 
 
                 setFormData({
@@ -41,8 +49,11 @@ const AddItem: React.FC = () => {
                     expiry_date: '',
                     purchase_date: '',
                     quantity: '',
+                    notes: '',
                     errors: {},
                 });
+
+                navigate('/expiry_track');
 
                 // Additional logic after successful submission if needed
 
@@ -90,7 +101,6 @@ const AddItem: React.FC = () => {
         return Object.keys(errors).length === 0;
     };
 
-    const navigate = useNavigate();
 
     return (
         <>
@@ -177,7 +187,7 @@ const AddItem: React.FC = () => {
                             )}
 
                             <input
-                                type="text"
+                                type="date"
                                 id="expiry_date"
                                 name="expiry_date"
                                 value={formData.expiry_date}
@@ -199,7 +209,7 @@ const AddItem: React.FC = () => {
                                 </p>
                             )}
                             <input
-                                type="text"
+                                type="date"
                                 id="purchase_date"
                                 name="purchase_date"
                                 value={formData.purchase_date}
