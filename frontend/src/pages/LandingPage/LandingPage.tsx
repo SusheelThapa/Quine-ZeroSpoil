@@ -12,7 +12,7 @@ import Partners from "@/components/Partners";
 const LandingPage = () => {
   return (
     <>
-      <Layout>
+      <Layout className="mx-auto mt-5 w-5/6 bg-white">
         <NavBar />
         <Hero />
         <Products />
