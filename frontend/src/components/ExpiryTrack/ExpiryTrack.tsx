@@ -90,7 +90,7 @@ const ExpiryTrack: React.FC = () => {
                         <li className="hover:text-green-600 cursor-pointer">Product list</li>
                         <li
                             className="hover:text-green-600 cursor-pointer"
-                            onClick={() => navigate('/expiry_track/add_item')}
+                            onClick={() => navigate('/expiry-track/add-item')}
                         >
                             Add Item
                         </li>
