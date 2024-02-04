@@ -9,11 +9,14 @@ import Layout from "@/layout/Layout";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
-// TODO: need to add the image of the team who have build this project
+import EY from "@/assets/img/avatar/EY.png";
+import LG from "@/assets/img/avatar/LG.png";
+
 const teams = [
   {
     shortName: "SKM",
     fullName: "Saurav Kumar Mahato",
+    profileImage: EY,
     position: "Full Stack Developer",
     socialMedia: {
       facebook: "https://www.facebook.com/Saurav.Kr.Mahat0",
@@ -26,6 +29,7 @@ const teams = [
   {
     shortName: "ST",
     fullName: "Susheel Thapa",
+    profileImage: LG,
     position: "Full Stack Developer",
     socialMedia: {
       facebook: "https://www.facebook.com/susheelthapaa/",
@@ -45,7 +49,6 @@ const OurTeam = () => {
         <div className="my-12 mb-20 bg-stone-100 py-20 rounded-3xl">
           <div className="flex justify-center items-center flex-col gap-8 mb-20">
             <h2 className="text-6xl text-center font-medium">
-              {" "}
               Our Team of{" "}
               <span className="text-blue-500 underline underline-offset-8">
                 Professionals
@@ -59,44 +62,52 @@ const OurTeam = () => {
             </p>
           </div>
           <div className="flex justify-center gap-64 items-center">
-            {teams.map(({ shortName, fullName, position, socialMedia }) => {
-              return (
-                <div
-                  key={shortName}
-                  className="flex flex-col justify-center items-center  gap-6"
-                >
-                  <Avatar className="w-44 h-44">
-                    <AvatarImage src="" />
-                    <AvatarFallback className="bg-gray-200">
-                      {shortName}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="text-2xl text-green-900 font-extrabold text-center">
-                    <p>{fullName}</p>
-                    <p className="mt-2 text-lg text-orange-400 font-bold">
-                      {position}
-                    </p>
+            {teams.map(
+              ({
+                shortName,
+                fullName,
+                profileImage,
+                position,
+                socialMedia,
+              }) => {
+                return (
+                  <div
+                    key={shortName}
+                    className="flex flex-col justify-center items-center  gap-6"
+                  >
+                    <Avatar className="w-44 h-44">
+                      <AvatarImage src={profileImage} />
+                      <AvatarFallback className="bg-gray-200">
+                        {shortName}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="text-2xl text-green-900 font-extrabold text-center">
+                      <p>{fullName}</p>
+                      <p className="mt-2 text-lg text-orange-400 font-bold">
+                        {position}
+                      </p>
+                    </div>
+                    <div className="flex justify-center items-center gap-3 text-lg text-gray-400">
+                      <Link to={socialMedia.facebook}>
+                        <FaFacebook className="hover:text-black" />
+                      </Link>
+                      <Link to={socialMedia.instagram}>
+                        <FaInstagram className="hover:text-black" />
+                      </Link>
+                      <Link to={socialMedia.github}>
+                        <FaGithub className="hover:text-black" />
+                      </Link>
+                      <Link to={socialMedia.twitter}>
+                        <FaXTwitter className="hover:text-black" />
+                      </Link>
+                      <Link to={socialMedia.linkedin}>
+                        <FaLinkedin className="hover:text-black" />
+                      </Link>
+                    </div>
                   </div>
-                  <div className="flex justify-center items-center gap-3 text-lg text-gray-400">
-                    <Link to={socialMedia.facebook}>
-                      <FaFacebook className="hover:text-black" />
-                    </Link>
-                    <Link to={socialMedia.instagram}>
-                      <FaInstagram className="hover:text-black" />
-                    </Link>
-                    <Link to={socialMedia.github}>
-                      <FaGithub className="hover:text-black" />
-                    </Link>
-                    <Link to={socialMedia.twitter}>
-                      <FaXTwitter className="hover:text-black" />
-                    </Link>
-                    <Link to={socialMedia.linkedin}>
-                      <FaLinkedin className="hover:text-black" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              }
+            )}
           </div>
         </div>
       </Layout>
