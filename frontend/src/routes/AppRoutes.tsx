@@ -4,6 +4,7 @@ import LandingPage from "@/pages/LandingPage";
 import RecipeGenerator from "@/pages/RecipeGenerator";
 import DonateFood from "@/pages/DonateFood";
 import Login from "@/pages/Login";
+import OurTeam from "@/pages/OurTeam";
 import ExpiryTrack from "@/components/ExpiryTrack";
 import AddItem from "@/components/ExpiryTrack/Additem";
 
@@ -15,6 +16,7 @@ const AppRoutes = () => {
         <Route path="/recipe-generator" element={<RecipeGenerator />} />
         <Route path="/donate-food" element={<DonateFood />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/our-team" element={<OurTeam />} />
         <Route path="/expiry-track" element={<ExpiryTrack />} />
         <Route path="/expiry-track/add-item" element={<AddItem />} />
       </Routes>
