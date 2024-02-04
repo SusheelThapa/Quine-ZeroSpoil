@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { FaCalendar, FaProductHunt, FaCubes, FaInfoCircle } from 'react-icons/fa';
 
 interface FormData {
     product_name: string;
@@ -72,27 +73,35 @@ const AddItem: React.FC = () => {
 
         // Check if product_name is empty
         if (!formData.product_name) {
-            errors.product_name = "Product Name is required";
+            errors.product_name = "Enter product name ";
         }
 
         // Check if description is empty
         if (!formData.description) {
-            errors.description = "Description is required";
+            errors.description = "Enter description of product";
         }
 
         // Check if expiry_date is empty
         if (!formData.expiry_date) {
-            errors.expiry_date = "Expiry Date is required";
+            errors.expiry_date = "enter valid expiry date";
         }
 
         // Check if purchase_date is empty
         if (!formData.purchase_date) {
-            errors.purchase_date = "Purchase Date is required";
+            errors.purchase_date = "Enter valid purchased date";
         }
 
         // Check if quantity is empty
         if (!formData.quantity) {
-            errors.quantity = "Quantity is required";
+            errors.quantity = "Enter Quantity";
+        }
+
+        const newStartDate = new Date(formData.purchase_date);
+        const newEndDate = new Date(formData.expiry_date);
+
+        if (newEndDate.getTime() <= newStartDate.getTime()) {
+            alert("Expiry date should be greater than purchased date");
+            return false;
         }
 
         setFormData((prevState) => ({ ...prevState, errors }));
@@ -127,12 +136,15 @@ const AddItem: React.FC = () => {
             <div className="mx-80 mt-14">
                 <form onSubmit={handleSubmit}>
                     <ol className="grid gap-12">
-                        <li className="">
+                        <li className="grid gap-2">
+
                             <label
                                 htmlFor="product_name"
-                                className="block text-sm font-medium leading-6 text-gray-900"
+                                className="flex gap-2 text-sm font-medium leading-6 text-gray-900"
                             >
-                                Item Name
+                                <FaProductHunt className="h-6 w-6 text-green-500" />
+
+                                Product Name
                             </label>
                             {formData.errors?.product_name && (
                                 <p className="font-sm text-red-600">
@@ -146,15 +158,15 @@ const AddItem: React.FC = () => {
                                 name="product_name"
                                 value={formData.product_name}
                                 onChange={handleInputChange}
-                                required
-                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full text-green-500"
+                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full"
                             />
                         </li>
-                        <li className="">
+                        <li className="grid gap-2">
                             <label
                                 htmlFor="description"
-                                className="block text-sm font-medium leading-6 text-gray-900"
+                                className="flex gap-2 text-sm font-medium leading-6 text-gray-900"
                             >
+                                <FaInfoCircle className="h-6 w-6 text-purple-500" />
                                 Product Description
                             </label>
                             {formData.errors?.description && (
@@ -169,16 +181,15 @@ const AddItem: React.FC = () => {
                                 name="description"
                                 value={formData.description}
                                 onChange={handleInputChange}
-                                required
-                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full text-green-500"
+                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full"
                             />
                         </li>
-                        <li className="">
+                        <li className="grid gap-2">
                             <label
                                 htmlFor="expiry_date"
-                                className="block text-sm font-medium leading-6 text-gray-900"
+                                className="flex gap-2 text-sm font-medium leading-6 text-gray-900"
                             >
-                                Expiry Date
+                                <FaCalendar className="h-5 w-5 text-blue-500" />Expiry Date
                             </label>
                             {formData.errors?.expiry_date && (
                                 <p className="font-sm text-red-600">
@@ -192,16 +203,17 @@ const AddItem: React.FC = () => {
                                 name="expiry_date"
                                 value={formData.expiry_date}
                                 onChange={handleInputChange}
-                                required
-                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full text-green-500"
+                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full"
                             />
                         </li>
-                        <li className="">
+                        <li className="grid gap-2">
                             <label
                                 htmlFor="purchase_date"
-                                className="block text-sm font-medium leading-6 text-gray-900"
+                                className="flex gap-2 text-sm font-medium leading-6 text-gray-900"
                             >
-                                Purchased
+                                <FaCalendar className="h-5 w-5 text-blue-500" />
+
+                                Purchased on
                             </label>
                             {formData.errors?.purchase_date && (
                                 <p className="font-sm text-red-600">
@@ -214,15 +226,15 @@ const AddItem: React.FC = () => {
                                 name="purchase_date"
                                 value={formData.purchase_date}
                                 onChange={handleInputChange}
-                                required
-                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full text-green-500"
+                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full"
                             />
                         </li>
-                        <li className="">
+                        <li className="grid gap-2">
                             <label
                                 htmlFor="quantity"
-                                className="block text-sm font-medium leading-6 text-gray-900"
+                                className="flex gap-2 text-sm font-medium leading-6 text-gray-900"
                             >
+                                <FaCubes className="h-6 w-6 text-red-500" />
                                 Quantity
                             </label>
                             {formData.errors?.quantity && (
@@ -237,8 +249,7 @@ const AddItem: React.FC = () => {
                                 name="quantity"
                                 value={formData.quantity}
                                 onChange={handleInputChange}
-                                required
-                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full text-green-500"
+                                className="border-b border-gray-300 focus:outline-none focus:border-slate-300 block w-full"
                             />
                         </li>
                     </ol>
