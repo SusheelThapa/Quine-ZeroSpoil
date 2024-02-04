@@ -6,22 +6,22 @@ import SJ from "@/assets/img/avatar/SJ.png";
 const LoginHero = () => {
   return (
     <div
-      className="p-10 px-16 bg-stone-200
-      rounded-2xl flex flex-col justify-between items-start"
+      className="p-10 px-16 bg-stone-200 col-span-2
+      rounded-3xl flex flex-col justify-between items-start"
     >
       <div className="flex justify-start items-center  ">
         <img src={logo} alt="Logo of ZeroSpoil" width={40} />
-        <div className="text-4xl font-extrabold ">
+        <div className="text-3xl font-extrabold ">
           <span className="text-green-500 underline decoration-3 ">Zero</span>
           <span className="text-red-400 underline decoration-3 ">Spoil</span>
         </div>
       </div>
 
       <div className="text-lg flex flex-col justify-around items-center gap-10 ">
-        <div className="text-6xl  mb-2 font-extrabold  tracking-normal ">
+        <div className="text-5xl  mb-2 font-extrabold  tracking-normal ">
           Start your journey with us.
         </div>
-        <div className="text-gray-500">
+        <div className="text-gray-500 text-base">
           Discover the world's bestplatform to reduce food waste, focusing
           towards conscious and impactful living. Embrace ZerpSpoil and savor
           the taste of a greener, more connected world.
