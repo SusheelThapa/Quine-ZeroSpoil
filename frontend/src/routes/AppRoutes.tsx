@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LandingPage from "@/pages/LandingPage";
+
+import Login from "@/pages/Login";
 import ExpiryTrack from "@/components/ExpiryTrack";
 import AddItem from "@/components/ExpiryTrack/Additem";
 
@@ -10,9 +12,9 @@ const AppRoutes = () => {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/expiry_track" element={<ExpiryTrack />} />
         <Route path="/expiry_track/add_item" element={<AddItem />} />
-
       </Routes>
     </Router>
   );
