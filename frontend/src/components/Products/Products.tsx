@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { GiPowerGenerator } from "react-icons/gi";
@@ -32,6 +31,7 @@ const products = [
     icon: <ImSpoonKnife className="text-slate-400" size={65} />,
     description:
       "Make a positive impact by easily donating surplus food to local charities, connecting with those in need and promoting a culture of giving back.",
+    link: "/donate-food",
   },
 ];
 
