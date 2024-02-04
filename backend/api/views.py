@@ -1,7 +1,7 @@
 # views.py
 from rest_framework import viewsets
-from .models import Category, Product, Comment
-from .serializers import CategorySerializer, ProductSerializer, CommentSerializer
+from .models import Category, Product, Comment, ExpiryTracker
+from .serializers import CategorySerializer, ProductSerializer, CommentSerializer, ExpiryTrackerSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
@@ -21,3 +21,8 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+class ExpiryTrackerViewSet(viewsets.ModelViewSet):
+    queryset = ExpiryTracker.objects.all()
+    serializer_class = ExpiryTrackerSerializer
