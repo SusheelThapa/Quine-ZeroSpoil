@@ -13,6 +13,7 @@ const products = [
     icon: <GiPowerGenerator className="text-red-500" size={65} />,
     description:
       " Transforms your remaining ingredients into personalized delightful recipes, minimizing food waste and maximizing culinary creativity.",
+    link: "/recipe-generator",
   },
   {
     title: "Expiry Date Tracker ",
@@ -48,7 +49,7 @@ const Products = () => {
       <div className="my-10 flex gap-20 justify-center items-center">
         {products.map((product, index) => {
           return (
-            <Link to={"/recipe-generator"}>
+            <Link to={product.link ? product.link : "#"}>
               <Card
                 className="w-80 h-96 hover:shadow-xl hover:transform hover:scale-105  transition flex justify-center items-center flex-col cursor-pointer rounded-3xl"
                 key={index}
