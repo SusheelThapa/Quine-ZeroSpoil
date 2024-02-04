@@ -12,7 +12,6 @@ import {
 import product_image from '@/assets/img/avatar/AB.png';
 
 import { useNavigate } from 'react-router-dom';
-import Products from '../Products';
 
 interface Product {
     id: number;
