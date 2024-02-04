@@ -12,6 +12,7 @@ const products = [
     icon: <GiPowerGenerator className="text-red-500" size={65} />,
     description:
       " Transforms your remaining ingredients into personalized delightful recipes, minimizing food waste and maximizing culinary creativity.",
+    link: "/recipe-generator",
   },
   {
     title: "Expiry Date Tracker ",
