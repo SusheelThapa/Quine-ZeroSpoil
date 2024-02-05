@@ -50,6 +50,7 @@ const FoodDonationForm: React.FC = () => {
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
+        required
       />
     </div>
   );
@@ -80,6 +81,7 @@ const FoodDonationForm: React.FC = () => {
         name="termsChecked"
         checked={formData.termsChecked}
         onChange={handleChange}
+        required
       />
       <label
         htmlFor="termsCheckbox"
