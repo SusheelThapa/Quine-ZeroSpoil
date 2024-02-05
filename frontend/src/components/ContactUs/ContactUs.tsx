@@ -11,13 +11,12 @@ const ContactUs = () => {
         <div className="text-5xl font-medium">
           Send us a <span className="text-[#ff8c00] underline">message...</span>
         </div>
-        <div className="text-base text-gray-700">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ipsa
-          labore? Consequatur sapiente repellat dolorum expedita hic. Velit
-          accusamus magni facere consectetur ad fugiat esse, repudiandae aliquid
-          ea
+        <div className="text-base text-gray-600">
+          Have questions, feedback, or just want to say hello? We'd love to hear
+          from you! Fill out the form below, and we'll get back to you promptly.
+          Your satisfaction is our priority.
         </div>
-        <div className="ml-3 flex text-sm text-stale-400  flex-col gap-2">
+        <div className="ml-3 mt-5 flex text-sm text-stale-400  flex-col gap-2">
           <p className="flex gap-4">
             <FaPhoneAlt />
             +00 000 0000
