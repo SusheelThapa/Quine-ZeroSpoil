@@ -58,23 +58,31 @@ const FAQ = () => {
     <>
       <Layout>
         <NavBar />
-        <div>
-          <div className="flex flex-col gap-8 justify-center items-center text-center">
-            <h1>Frequently Asked Questions</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptates ipsum nam perferendis laborum dolorum, saepe itaque
-              adipisci magnam facere enim culpa soluta hic quisquam nesciunt
-              nisi, odit ut accusantium tenetur nobis optio sapiente rem!
+        <div className="my-10 bg-stone-50 rounded-3xl ">
+          <div className="py-4 pt-10 flex flex-col gap-8 justify-center items-center text-center">
+            <h1 className="text-5xl tracking-wide font-bold text-indigo-700">
+              Frequently Asked Questions
+            </h1>
+            <p className="w-2/3 text-gray-500">
+              Explore answers to common queries about ZeroSpoil, your go-to app
+              for reducing food waste and embracing sustainable living. Discover
+              how to make the most of intelligent inventory management,
+              community recipe sharing, and surplus food donations. Get started
+              on your journey to mindful cooking and a greener lifestyle with
+              ZeroSpoil.
             </p>
           </div>
-          <div className="w-full grid grid-cols-2 px-10 gap-10">
+          <div className="w-full grid grid-cols-2 px-8 gap-10">
             <Accordion type="single" collapsible className="w-full px-10 my-16">
               {faqs.map(({ question, answer }, index) => {
                 return (
                   <AccordionItem key={index} value={`item-${index + 1}`}>
-                    <AccordionTrigger>{question}</AccordionTrigger>
-                    <AccordionContent>{answer}</AccordionContent>
+                    <AccordionTrigger className="text-base font-bold text-black tracking-wide">
+                      {question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-500 text-sm ">
+                      {answer}
+                    </AccordionContent>
                   </AccordionItem>
                 );
               })}
