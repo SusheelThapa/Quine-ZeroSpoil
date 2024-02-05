@@ -32,14 +32,17 @@ const Partners = () => {
         people around the world...
       </div>
       <div className="flex justify-between gap-10 w-full">
-        {partners.map(({ full_name, avatar }) => {
+        {partners.map(({ full_name, avatar, position }) => {
           return (
             <div className="flex justify-center items-center flex-col w-1/5 gap-5">
               <Avatar className="w-28 h-28">
                 <AvatarImage src={avatarImage(avatar)} />
                 <AvatarFallback>{avatar}</AvatarFallback>
               </Avatar>
-              <p className="text-xl text-gray-600">{full_name}</p>
+              <div className="text-center ">
+                <p className="text-xl text-gray-600">{full_name}</p>
+                <p className="text-base text-gray-400">{position}</p>
+              </div>
             </div>
           );
         })}
