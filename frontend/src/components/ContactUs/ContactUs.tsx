@@ -6,7 +6,7 @@ import ContactUsForm from "./ContactUsForm";
 
 const ContactUs = () => {
   return (
-    <div className="mt-32 my-20 flex justify-evenly items-center">
+    <div id="contact-us" className="mt-32 my-20 flex justify-evenly items-center">
       <div className="w-2/5 flex flex-col justify-start items-start gap-5">
         <div className="text-5xl font-medium">
           Send us a <span className="text-[#ff8c00] underline">message...</span>

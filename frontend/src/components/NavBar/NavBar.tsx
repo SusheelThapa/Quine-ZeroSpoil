@@ -4,24 +4,54 @@ import Logo from "@/assets/img/logo.svg";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className=" flex justify-between items-center h-16 text-xl text-black">
       {/* Logo section */}
-      <div className="flex gap-2 items-end justify-end">
-        <img src={Logo} alt="Logo of ZeroSpoil" className="w-10 rounded-full" />
-        <div className="text-3xl font-extrabold ">
-          <span className="text-green-500">Zero</span>
-          <span className="text-red-400">Spoil</span>
+      <Link to="/">
+        <div className="flex gap-2 items-end justify-end">
+          <img
+            src={Logo}
+            alt="Logo of ZeroSpoil"
+            className="w-10 rounded-full"
+          />
+          <div className="text-3xl font-extrabold ">
+            <span className="text-green-500">Zero</span>
+            <span className="text-red-400">Spoil</span>
+          </div>
         </div>
-      </div>
+      </Link>
 
       {/* navigation menu */}
       <div>
         <ul className="flex gap-10  justify-start items-center font-medium">
-          <li className="hover:text-green-600 cursor-pointer">Home</li>
-          <li className="hover:text-green-600 cursor-pointer">Products</li>
-          <li className="hover:text-green-600 cursor-pointer">Testimonials</li>
-          <li className="hover:text-green-600 cursor-pointer">Contact Us</li>
+          <li className="hover:text-green-600 cursor-pointer">
+            <Link to="/">Home</Link>
+          </li>
+          <li
+            className="hover:text-green-600 cursor-pointer"
+            onClick={() => scrollToSection("products")}
+          >
+            <Link to="/#products">Products</Link>
+          </li>
+          <li
+            className="hover:text-green-600 cursor-pointer"
+            onClick={() => scrollToSection("testimonials")}
+          >
+            <Link to="/#testimonials">Testimonials</Link>
+          </li>
+          <li
+            className="hover:text-green-600 cursor-pointer"
+            onClick={() => scrollToSection("contact-us")}
+          >
+            <Link to="/#contact-us">Contact Us</Link>
+          </li>
         </ul>
       </div>
 
