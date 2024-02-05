@@ -9,6 +9,8 @@ import Layout from "@/layout/Layout";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
+import faqImage from "@/assets/img/faq.png";
+
 const faqs = [
   {
     question: "What is ZeroSpoil?",
@@ -58,7 +60,7 @@ const FAQ = () => {
     <>
       <Layout>
         <NavBar />
-        <div className="my-10 bg-stone-50 rounded-3xl ">
+        <div className="my-12 bg-stone-50 rounded-3xl ">
           <div className="py-4 pt-10 flex flex-col gap-8 justify-center items-center text-center">
             <h1 className="text-5xl tracking-wide font-bold text-indigo-700">
               Frequently Asked Questions
@@ -72,7 +74,7 @@ const FAQ = () => {
               ZeroSpoil.
             </p>
           </div>
-          <div className="w-full grid grid-cols-2 px-8 gap-10">
+          <div className="w-full grid grid-cols-2 px-8 gap-4 mt-3 justify-center align-center items-center">
             <Accordion type="single" collapsible className="w-full px-10 my-16">
               {faqs.map(({ question, answer }, index) => {
                 return (
@@ -87,7 +89,10 @@ const FAQ = () => {
                 );
               })}
             </Accordion>
-            <div>Some image</div>
+
+            <div className="bg-cover">
+              <img src={faqImage} alt="donation of food image"  className="aspect-ratio p-8"/>
+            </div>
           </div>
         </div>
       </Layout>
