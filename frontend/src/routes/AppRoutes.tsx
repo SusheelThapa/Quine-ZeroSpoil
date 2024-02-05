@@ -8,6 +8,7 @@ import OurTeam from "@/pages/OurTeam";
 import FAQ from "@/pages/FAQ";
 
 import ExpiryTrack from "@/components/ExpiryTrack";
+import ItemDetail from "@/components/ExpiryTrack/ItemDetail";
 import AddItem from "@/components/ExpiryTrack/Additem";
 
 const AppRoutes = () => {
@@ -21,6 +22,7 @@ const AppRoutes = () => {
         <Route path="/our-team" element={<OurTeam />} />
         <Route path="/expiry-track" element={<ExpiryTrack />} />
         <Route path="/expiry-track/add-item" element={<AddItem />} />
+        <Route path="/expiry-track/:id" element={<ItemDetail />} />
         <Route path="/faq" element={<FAQ />} />
       </Routes>
     </Router>
