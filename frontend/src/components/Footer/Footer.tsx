@@ -8,10 +8,12 @@ const Footer = () => {
     <div className="flex flex-col gap-10 justify-between items-center bg-black text-gray-300 py-6 pt-10 text-sm">
       <div className=" mx-auto flex  justify-evenly items-center w-full ">
         <div className="flex flex-col gap-1 justify-center items-start">
-          <div className="text-4xl font-bold">
-            <span className="text-red-500">Zero</span>
-            <span className="text-green-500">Spoil</span>
-          </div>
+          <Link to="/">
+            <div className="text-4xl font-bold">
+              <span className="text-green-500">Zero</span>
+              <span className="text-red-500">Spoil</span>
+            </div>
+          </Link>
           <div className="text-xl text-gray-400">
             Effortless Food Waste Reduction
           </div>
