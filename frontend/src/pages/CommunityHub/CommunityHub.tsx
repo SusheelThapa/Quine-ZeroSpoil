@@ -10,7 +10,7 @@ const CommunityHub = () => {
     <>
       <Layout>
         <NavBar />
-        <div className="my-20 p-4 grid grid-cols-4 bg-stone-50 rounded-3xl">
+        <div className="mx-auto my-10 p-4 w-10/12 grid grid-cols-4 bg-stone-100 rounded-3xl justify-center r align-middle">
           <CommunityHubSidebar />
           <CommunityHubPost />
         </div>
