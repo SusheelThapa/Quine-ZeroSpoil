@@ -6,6 +6,7 @@ import DonateFood from "@/pages/DonateFood";
 import Login from "@/pages/Login";
 import OurTeam from "@/pages/OurTeam";
 import FAQ from "@/pages/FAQ";
+import CommunityHub from "@/pages/CommunityHub/CommunityHub";
 
 import ExpiryTrack from "@/components/ExpiryTrack";
 import AddItem from "@/components/ExpiryTrack/Additem";
@@ -22,6 +23,7 @@ const AppRoutes = () => {
         <Route path="/expiry-track" element={<ExpiryTrack />} />
         <Route path="/expiry-track/add-item" element={<AddItem />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/community-hub" element={<CommunityHub />} />
       </Routes>
     </Router>
   );
