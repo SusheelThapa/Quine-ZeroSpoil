@@ -35,7 +35,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="my-24 flex justify-center items-center ">
+    <div id="testimonials" className="my-24 flex justify-center items-center ">
       <div className="ml-20 w-2/5 flex justify-center items-start gap-6 flex-col">
         <h1 className="text-5xl">Testimonials</h1>
         <p className="text-base text-gray-400">
