@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import AddCommunityPost from "./AddPost";
 
 const communityPost = [
   {
@@ -105,9 +106,8 @@ const communityPost = [
   },
 ];
 
-const CommunityPost = () => {
-  const [posts, setPosts] = useState(communityPost);
-  const [displayPosts, setDisplayPosts] = useState(communityPost.slice(0, 3));
+const CommunityPosts = () => {
+  const [posts] = useState(communityPost);
 
   const getNameInitial = (name: string): string => {
     const names = name.split(" ");
@@ -174,8 +174,9 @@ const CommunityPost = () => {
 
   return (
     <div className=" text-sm col-span-3 w-full flex flex-col justify-center items-center">
+      <AddCommunityPost />
       <div className="flex justify-center flex-col items-center gap-8 m-6 w-full">
-        {displayPosts.map(
+        {posts.map(
           ({
             title,
             postedBy,
@@ -233,10 +234,8 @@ const CommunityPost = () => {
           }
         )}
       </div>
-
-      {}
     </div>
   );
 };
 
-export default CommunityPost;
+export default CommunityPosts;

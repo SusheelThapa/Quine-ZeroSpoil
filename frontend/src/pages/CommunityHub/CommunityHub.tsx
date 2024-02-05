@@ -1,5 +1,5 @@
 import CommunityHubSidebar from "@/components/CommunityHubSidebar";
-import CommunityHubPost from "@/components/CommunityHubPost";
+import CommunityPosts from "@/components/CommunityHubPost";
 
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
@@ -12,7 +12,7 @@ const CommunityHub = () => {
         <NavBar />
         <div className="mx-auto my-10 p-4 w-10/12 grid grid-cols-4 bg-stone-100 rounded-3xl justify-center r align-middle">
           <CommunityHubSidebar />
-          <CommunityHubPost />
+          <CommunityPosts />
         </div>
       </Layout>
       <Footer />
