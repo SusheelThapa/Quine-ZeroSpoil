@@ -6,9 +6,10 @@ import { getInitial } from "@/utils/getInitial";
 import { useState } from "react";
 interface Props {
   posts: CommunityPost[];
+  handleAddNewPost: (newPost: CommunityPost) => void;
 }
 
-const CommunityPosts = ({ posts }: Props) => {
+const CommunityPosts = ({ posts, handleAddNewPost }: Props) => {
   const postsPerPage = 3;
   const totalPages = Math.ceil(posts.length / postsPerPage);
   const displayPages = 3;
@@ -78,6 +79,7 @@ const CommunityPosts = ({ posts }: Props) => {
   
     `;
   };
+
   const renderPageNumbers = () => {
     const pages = [];
     const startPage = Math.max(1, currentPage - Math.floor(displayPages / 2));
@@ -107,7 +109,7 @@ const CommunityPosts = ({ posts }: Props) => {
 
   return (
     <div className=" text-sm col-span-3 w-full flex flex-col justify-center items-center">
-      <AddCommunityPost />
+      <AddCommunityPost handleAddNewPost={handleAddNewPost} />
       <div className="flex justify-center flex-col items-center gap-8 m-6 w-full">
         {currentPosts.map(
           ({

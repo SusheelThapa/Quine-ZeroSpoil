@@ -1,19 +1,25 @@
+import { CommunityPost } from "@/types";
 import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 interface Props {
   isFormActive: (bool: boolean) => void;
+  handleAddNewPost: (newPost: CommunityPost) => void;
 }
 
-const AddPostForm = ({ isFormActive }: Props) => {
-  const [formData, setFormData] = useState({
+const AddPostForm = ({ isFormActive, handleAddNewPost }: Props) => {
+  const [formData, setFormData] = useState<CommunityPost>({
     title: "",
-    description: "",
+    postedBy: "Susheel Thapa",
     label: [],
+    description: "",
+    likeCount: 0,
+    commentCount: 0,
+    postedOn: new Date(),
   });
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    handleAddNewPost(formData);
     isFormActive(false);
   };
 
@@ -52,6 +58,7 @@ const AddPostForm = ({ isFormActive }: Props) => {
               }}
               placeholder="Enter your title"
               className="mt-1 p-3 text-base border border-gray-300 rounded-lg w-full focus:outline-none focus:border-indigo-500 bg-white"
+              required
             />
           </div>
 
@@ -72,6 +79,7 @@ const AddPostForm = ({ isFormActive }: Props) => {
                 setFormData({ ...formData, description: e.target.value });
               }}
               className="mt-1 p-3 text-base border border-gray-300 rounded-lg w-full focus:outline-none focus:border-indigo-500 bg-white"
+              required
             ></textarea>
           </div>
 

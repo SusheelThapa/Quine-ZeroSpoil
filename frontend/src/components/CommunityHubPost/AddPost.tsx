@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import AddPostForm from "./AddPostForm";
+import { CommunityPost } from "@/types";
 
-const AddPost = () => {
+interface Props {
+  handleAddNewPost: (newPost: CommunityPost) => void;
+}
+const AddPost = ({ handleAddNewPost }: Props) => {
   const [isPostFormActive, setPostFormActive] = useState(false);
 
   return (
@@ -16,9 +20,7 @@ const AddPost = () => {
           Add Post
         </div>
       </div>
-      {isPostFormActive && (
-        <AddPostForm isFormActive={setPostFormActive} />
-      )}
+      {isPostFormActive && <AddPostForm handleAddNewPost={handleAddNewPost} isFormActive={setPostFormActive} />}
     </>
   );
 };

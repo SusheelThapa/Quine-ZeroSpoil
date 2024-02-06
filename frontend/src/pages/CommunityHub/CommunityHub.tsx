@@ -26,7 +26,7 @@ const sidebarList = [
 ];
 
 const CommunityHub = () => {
-  const [posts] = useState<CommunityPost[]>([
+  const [posts, setPosts] = useState<CommunityPost[]>([
     {
       title: "Delicious Chocolate Cake",
       postedBy: "Alice",
@@ -158,6 +158,10 @@ const CommunityHub = () => {
     setFilteredPosts(updatedPosts);
   };
 
+  const handleAddNewPost = (newPost: CommunityPost) => {
+    setPosts([newPost, ...posts]);
+  };
+
   return (
     <>
       <Layout>
@@ -167,7 +171,10 @@ const CommunityHub = () => {
             sidebarList={sidebarList}
             onClickSideBarOption={onClickSideBarOption}
           />
-          <CommunityPosts posts={filteredPosts} />
+          <CommunityPosts
+            posts={filteredPosts}
+            handleAddNewPost={handleAddNewPost}
+          />
         </div>
       </Layout>
       <Footer />
