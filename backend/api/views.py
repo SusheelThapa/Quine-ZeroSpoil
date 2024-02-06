@@ -14,6 +14,10 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
+import openai
+openai.api_key = "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"
+
+
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -87,9 +91,56 @@ def contact_form(request):
         email_subject,
         text_content,
         EMAIL_HOST_USER,  # Replace with the sender's email address
-        [user_data["email"]]  # Replace with the recipient's email address
+        user_data["email"]  # Replace with the recipient's email address
     )
     email.attach_alternative(html_content, "text/html")
     email.send(fail_silently=False)
 
     return JsonResponse({'status': 'success', 'message': 'Form submitted successfully'})
+
+
+
+@api_view(['POST'])
+def get_recipe(request):
+    # Get the data from the POST request
+    try:
+
+        # Get the data from the POST request
+        ingredients = request.data
+
+        # Call OpenAI API to get recipe result
+        prompt = f'''
+            Given the following ingredients available in my home:
+
+            -  {", ".join(ingredients)}
+
+            Please generate a delicious recipe using these ingredients in below format: 
+            ''' + '''
+
+            {
+                "recipe": "Delicious Recipe",
+                "instructions": [
+                    "instruction 1 ",
+                    "instruction 22",
+                    "instruction 3 and soon",
+                ]   
+            }
+
+            Note: generate me instruciton as format specified above and generate nothing else. 
+                    Note: generate me instruciton as format specified above and generate nothing else. 
+                '''
+        completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo-0613", 
+            messages = [{"role": "system", "content" : "Generate code for below explanition"},
+                {"role": "user", "content" : f"{prompt}"}]
+        )   
+
+        response_data = completion.choices[0].message.content   
+
+        # Send the response back to the frontend
+        return Response(response_data)  
+     
+    except Exception as e: 
+        print(f"an error occured:{e}")
+        return None   
+

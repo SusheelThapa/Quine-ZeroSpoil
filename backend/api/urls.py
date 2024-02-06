@@ -1,6 +1,6 @@
 # urls.py
 from rest_framework import routers
-from .views import CategoryViewSet, ProductViewSet, CommentViewSet, ExpiryTrackerViewSet, submit_contact_form, contact_form
+from .views import CategoryViewSet, ProductViewSet, CommentViewSet, ExpiryTrackerViewSet, submit_contact_form, contact_form, get_recipe
 from django.urls import path
 
 router = routers.DefaultRouter()
@@ -12,4 +12,5 @@ router.register(r'expirytrackers', ExpiryTrackerViewSet)
 urlpatterns = [
     path('submit_contact_form/', submit_contact_form, name='submit_contact_form'),
     path('contact_form/', contact_form, name='contact_form'),
+    path('get_recipe/', get_recipe, name='get_recipe'),
 ] + router.urls
