@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useToast } from "../ui/use-toast";
 
 const LoginForm = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,8 +18,15 @@ const LoginForm = () => {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     console.log("Form Data:", formData);
     // TODO: Send the login credentials to backend
+
+    // Toastify message
+    toast({
+      variant: "login",
+      description: "Login Successfully...",
+    });
   };
 
   return (

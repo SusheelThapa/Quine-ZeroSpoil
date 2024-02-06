@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import {
   FaCalendarAlt,
   FaEnvelope,
@@ -7,8 +7,10 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { useToast } from "../ui/use-toast";
 
 const FoodDonationForm: React.FC = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -97,12 +99,18 @@ const FoodDonationForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    toast({
+      variant: "donate-food",
+      description:
+        "🌟 Thank you for your generosity! Your food donation makes a meaningful impact.",
+    });
+
     try {
       const response = await axios.post(
         "http://localhost:8000/api/submit_contact_form/",
         formData
       );
-      
+
       if (response.data.status === "success") {
         // Form submitted successfully
         console.log("Form submitted successfully");
@@ -111,19 +119,17 @@ const FoodDonationForm: React.FC = () => {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-    }finally{
-      setFormData(
-        {
-          fullName: "",
-          email: "",
-          phone: "",
-          pickupDate: "",
-          address: "",
-          termsChecked: false,
-        });
+    } finally {
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        pickupDate: "",
+        address: "",
+        termsChecked: false,
+      });
     }
   };
-
 
   const renderSubmitButton = () => (
     <button
@@ -134,7 +140,6 @@ const FoodDonationForm: React.FC = () => {
       Donate Food
     </button>
   );
-
 
   return (
     <div className="bg-white p-8  mx-auto">

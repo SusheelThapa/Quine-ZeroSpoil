@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useToast } from "../ui/use-toast";
 
 const ContactForm = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -103,6 +105,13 @@ const ContactForm = () => {
         </div>
 
         <button
+          onClick={() => {
+            toast({
+              variant: "contact-us",
+              description:
+                "Thanks for contacting us! We appreciate your interest.🙌",
+            });
+          }}
           type="submit"
           className="w-full text-lg font-bold bg-[#ff8c00] text-white py-2 rounded-md hover:bg-[#f7941d] focus:outline-none focus:ring focus:border-[#f7941d]"
         >

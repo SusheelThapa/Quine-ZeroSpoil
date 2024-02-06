@@ -1,6 +1,9 @@
 import { Button } from "../ui/button";
+import { useToast } from "../ui/use-toast";
 
 const NewsLetter = () => {
+  const { toast } = useToast();
+
   return (
     <div className="mt-20 flex justify-center items-center flex-col gap-12">
       <div className="text-5xl">
@@ -30,7 +33,16 @@ const NewsLetter = () => {
             64 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             required
           />
-          <Button className="py-6 px-3 text-lg bg-blue-500 text-white hover:bg-blue-600">
+          <Button
+            className="py-6 px-3 text-lg bg-blue-500 text-white hover:bg-blue-600"
+            onClick={() => {
+              toast({
+                variant: "newsletter",
+                description:
+                  "Thanks for joining our community! Get ready for exciting updates. 🌟",
+              });
+            }}
+          >
             Subscribe Now
           </Button>
         </div>
