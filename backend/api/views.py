@@ -51,7 +51,7 @@ def submit_contact_form(request):
         email_subject = 'Confirmation of Your Food Donation Form Submission - ZeroSpoil'
 
         # Render HTML content with image
-        html_content = render_to_string('email_template.html', {'user_data': user_data})
+        html_content = render_to_string('donate_food_email.html', {'user_data': user_data})
         text_content = strip_tags(html_content)
 
         # Sending the email with both HTML and plain text content
@@ -70,3 +70,26 @@ def submit_contact_form(request):
         return Response(serializer.errors, status=400)
 
 
+@api_view(['POST'])
+def contact_form(request):
+    # Extract data from the POST request
+    user_data = request.data
+
+    # Constructing the email message with HTML content
+    email_subject = 'ZeroSpoil - Contact Form Submission'
+
+    # Render HTML content with image
+    html_content = render_to_string('contact_us_email.html')
+    text_content = strip_tags(html_content)
+
+    # Sending the email with both HTML and plain text content
+    email = EmailMultiAlternatives(
+        email_subject,
+        text_content,
+        EMAIL_HOST_USER,  # Replace with the sender's email address
+        [user_data["email"]]  # Replace with the recipient's email address
+    )
+    email.attach_alternative(html_content, "text/html")
+    email.send(fail_silently=False)
+
+    return JsonResponse({'status': 'success', 'message': 'Form submitted successfully'})
