@@ -26,6 +26,7 @@ const products = [
     icon: <CgCommunity className="text-blue-600" size={65} />,
     description:
       "Engage in a culinary community, sharing recipes and daily meals, fostering inspiration and camaraderie among cooking enthusiasts.",
+    link: "/community-hub",
   },
   {
     title: "Donate Food",
@@ -38,7 +39,10 @@ const products = [
 
 const Products = () => {
   return (
-    <div id="products" className="mt-28 flex flex-col justify-center items-center gap-10">
+    <div
+      id="products"
+      className="mt-28 flex flex-col justify-center items-center gap-10"
+    >
       <div className="text-5xl">Our Products</div>
       <div className="w-4/5 text-center text-lg text-gray-500">
         Step into a world of delightful cooking with ZeroSpoil! Share your go-to
