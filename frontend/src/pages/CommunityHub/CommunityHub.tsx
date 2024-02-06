@@ -160,6 +160,7 @@ const CommunityHub = () => {
 
   const handleAddNewPost = (newPost: CommunityPost) => {
     setPosts([newPost, ...posts]);
+    setFilteredPosts([newPost, ...posts]);
   };
 
   return (

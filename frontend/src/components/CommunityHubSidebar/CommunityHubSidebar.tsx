@@ -10,6 +10,7 @@ const CommunityHubSidebar = ({ sidebarList, onClickSideBarOption }: Props) => {
         {sidebarList.map(({ icon, title }) => {
           return (
             <li
+              key={title}
               onClick={() => onClickSideBarOption(title)}
               className="w-full py-3 pl-2 rounded-xl flex justify-start item-center space-x-2  hover:bg-gray-200"
             >
