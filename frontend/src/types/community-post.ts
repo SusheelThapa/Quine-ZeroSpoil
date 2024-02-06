@@ -5,5 +5,5 @@ export interface CommunityPost {
   description: string;
   likeCount: number;
   commentCount: number;
-  postedOn: string;
+  postedOn: Date;
 }

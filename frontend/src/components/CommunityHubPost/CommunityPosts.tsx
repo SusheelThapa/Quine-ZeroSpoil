@@ -2,20 +2,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import AddCommunityPost from "./AddPost";
 import { CommunityPost } from "@/types";
+import { getInitial } from "@/utils/getInitial";
 
 interface Props {
   posts: CommunityPost[];
 }
 
 const CommunityPosts = ({ posts }: Props) => {
-  const getNameInitial = (name: string): string => {
-    const names = name.split(" ");
-    return names.map((n) => n.charAt(0)).join("");
-  };
-
-  const getPostAgeString = (dateString: string): string => {
+  const getPostAgeString = (providedDate: Date): string => {
     const currentDate = new Date();
-    const providedDate = new Date(dateString);
 
     const millisecondsPerDay = 24 * 60 * 60 * 1000;
     const millisecondsPerWeek = 7 * millisecondsPerDay;
@@ -98,7 +93,7 @@ const CommunityPosts = ({ posts }: Props) => {
                     <Avatar className="w-16 h-16">
                       <AvatarImage src="/" />
                       <AvatarFallback className="text-black">
-                        {getNameInitial(postedBy)}
+                        {getInitial(postedBy)}
                       </AvatarFallback>
                     </Avatar>
                     <div className="text-xl text-gray-600 flex flex-col">
