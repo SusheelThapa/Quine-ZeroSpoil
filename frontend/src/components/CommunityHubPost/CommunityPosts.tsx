@@ -4,6 +4,9 @@ import AddCommunityPost from "./AddPost";
 import { CommunityPost } from "@/types";
 import { getInitial } from "@/utils/getInitial";
 import { useState } from "react";
+
+import { FaThumbsUp, FaComment, FaShare } from "react-icons/fa";
+
 interface Props {
   posts: CommunityPost[];
   handleAddNewPost: (newPost: CommunityPost) => void;
@@ -169,14 +172,21 @@ const CommunityPosts = ({ posts, handleAddNewPost }: Props) => {
                   </div>
                 </div>
                 <div className="text-base text-black">{description}</div>
-                <div>
-                  <div>
-                    <span>{likeCount}</span> Like
+                <div className="grid grid-cols-3 align-middle items-center  justify-center text-gray-500 text-base">
+                  <div className="flex items-center justify-center hover:text-blue-500">
+                    <FaThumbsUp className="mr-3 " />
+                    <span>{likeCount}</span>
+                    <span className="ml-1">Like</span>
                   </div>
-                  <div>
-                    <span>{commentCount}</span> Comment
+                  <div className="flex items-center justify-center hover:text-orange-500">
+                    <FaComment className="mr-3 " />
+                    <span>{commentCount}</span>
+                    <span className="ml-1">Comment</span>
                   </div>
-                  <div>Share</div>
+                  <div className="flex items-center justify-center  hover:text-green-600">
+                    <FaShare className="mr-3" />
+                    <span>Share</span>
+                  </div>
                 </div>
               </div>
             );
