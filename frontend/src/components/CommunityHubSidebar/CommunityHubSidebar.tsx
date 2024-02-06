@@ -11,7 +11,7 @@ const CommunityHubSidebar = ({
 }: Props) => {
   return (
     <div className=" pt-4 pb-16 h-full w-full  ">
-      <ul className="h-full space-y-4 text-xl w-full ml-6 pr-4 border-r-4 border-gray-300">
+      <ul className="h-full space-y-4 text-xl w-full ml-6">
         {sidebarList.map(({ icon, title }) => {
           return (
             <li
