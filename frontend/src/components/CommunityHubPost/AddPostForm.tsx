@@ -10,12 +10,13 @@ const AddPostForm = ({ isFormActive, handleAddNewPost }: Props) => {
   const [formData, setFormData] = useState<CommunityPost>({
     title: "",
     postedBy: "Susheel Thapa",
-    label: [],
+    label: ['Recipe'],
     description: "",
     likeCount: 0,
     commentCount: 0,
     postedOn: new Date(),
   });
+  const [selectedLabel, setSelectedLabel] = useState<string>();
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -93,11 +94,16 @@ const AddPostForm = ({ isFormActive, handleAddNewPost }: Props) => {
             <select
               id="label"
               name="label"
+              value={selectedLabel} // Set the selected value
+              onChange={(e) => {
+                setSelectedLabel(e.target.value);
+                setFormData({ ...formData, label: [e.target.value] }); // Update formData with the selected label
+              }}
               className="mt-1 p-3 text-base border border-gray-300 rounded-lg w-full focus:outline-none focus:border-indigo-500 bg-white transition duration-300 ease-in-out hover:border-indigo-500 appearance-none"
             >
-              <option value="recipe">Recipe</option>
-              <option value="donation">Donation</option>
-              <option value="others">Others</option>
+              <option value="Recipe">Recipe</option>
+              <option value="Donation">Donation</option>
+              <option value="Others">Others</option>
             </select>
           </div>
 

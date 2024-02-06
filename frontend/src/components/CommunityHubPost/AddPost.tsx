@@ -20,7 +20,12 @@ const AddPost = ({ handleAddNewPost }: Props) => {
           Add Post
         </div>
       </div>
-      {isPostFormActive && <AddPostForm handleAddNewPost={handleAddNewPost} isFormActive={setPostFormActive} />}
+      {isPostFormActive && (
+        <AddPostForm
+          handleAddNewPost={handleAddNewPost}
+          isFormActive={setPostFormActive}
+        />
+      )}
     </>
   );
 };
