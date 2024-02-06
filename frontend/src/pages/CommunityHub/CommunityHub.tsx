@@ -9,6 +9,22 @@ import Layout from "@/layout/Layout";
 import { CommunityPost } from "@/types";
 import { stringToDate } from "@/utils/stringToDate";
 
+import {
+  FaCompass,
+  FaFire,
+  FaUtensils,
+  FaHeart,
+  FaEllipsisH,
+} from "react-icons/fa";
+
+const sidebarList = [
+  { icon: <FaCompass className="text-xl text-gray-500" />, title: "Explore" },
+  { icon: <FaFire className="text-xl text-gray-500" />, title: "Trending" },
+  { icon: <FaUtensils className="text-xl text-gray-500" />, title: "Recipe" },
+  { icon: <FaHeart className="text-xl text-gray-500" />, title: "Donation" },
+  { icon: <FaEllipsisH className="text-xl text-gray-500" />, title: "Others" },
+];
+
 const CommunityHub = () => {
   const [posts] = useState<CommunityPost[]>([
     {
@@ -112,14 +128,46 @@ const CommunityHub = () => {
       postedOn: stringToDate("2022-04-15T00:00:00.000Z"),
     },
   ]);
+  const [filteredPosts, setFilteredPosts] = useState(posts);
+
+  const onClickSideBarOption = (title: string) => {
+    let updatedPosts: CommunityPost[] = [];
+
+    switch (title.toLowerCase()) {
+      case "explore":
+        updatedPosts = [...posts].sort(() => Math.random() - 0.5);
+        break;
+
+      case "trending":
+        updatedPosts = [...posts].sort(
+          (a, b) => b.postedOn.getTime() - a.postedOn.getTime()
+        );
+        break;
+
+      case "recipe":
+      case "donation":
+      case "others":
+        updatedPosts = posts.filter((post) => post.label.includes(title));
+        break;
+
+      default:
+        updatedPosts = [...posts];
+        break;
+    }
+
+    setFilteredPosts(updatedPosts);
+  };
 
   return (
     <>
       <Layout>
         <NavBar />
         <div className="mx-auto my-10 p-4 w-10/12 grid grid-cols-4 bg-stone-100 rounded-3xl justify-center r align-middle">
-          <CommunityHubSidebar />
-          <CommunityPosts posts={posts} />
+          <CommunityHubSidebar
+            sidebarList={sidebarList}
+            onClickSideBarOption={onClickSideBarOption}
+          />
+          <CommunityPosts posts={filteredPosts} />
         </div>
       </Layout>
       <Footer />
