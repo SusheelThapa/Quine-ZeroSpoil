@@ -7,16 +7,37 @@ import IngredientForm from "@/components/Ingredient/IngredientForm";
 import CircularLoader from "@/components/CircularLoader/CircularLoader";
 import { useState } from "react";
 
+export interface RecipeResponse {
+  recipe: string;
+  instructions: string[];
+}
 const RecipeGenerator = () => {
+  const [result, setResult] = useState<RecipeResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (ingredients: string[]) => {
-    console.log(ingredients);
-    setLoading(true);
-    // TODO: API CALL
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      setLoading(true);
 
-    setLoading(false);
+      console.log(ingredients);
+
+      // Simulating an API call delay (replace this with your actual API call logic)
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // Simulated API response data (replace this with your actual API response data)
+      setResult({
+        recipe: "Delicious Recipe",
+        instructions: [
+          "Mix the ingredients together",
+          "Cook on medium heat for 20 minutes",
+          "Serve and enjoy!",
+        ],
+      });
+    } catch (error) {
+      console.error("Error making API call:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -25,7 +46,7 @@ const RecipeGenerator = () => {
         <NavBar />
         <div className="grid grid-cols-2 my-20 h-[60vh] justify-center items-center align-middle">
           <IngredientForm onSubmit={handleSubmit} />
-          {loading ? <CircularLoader /> : <Recipe />}
+          {loading ? <CircularLoader /> : <Recipe result={result} />}
         </div>
       </Layout>
       <Footer />
