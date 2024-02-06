@@ -18,8 +18,8 @@ import {
 } from "react-icons/fa";
 
 const sidebarList = [
-  { icon: <FaCompass className="text-xl text-gray-500" />, title: "Explore" },
   { icon: <FaFire className="text-xl text-gray-500" />, title: "Trending" },
+  { icon: <FaCompass className="text-xl text-gray-500" />, title: "Explore" },
   { icon: <FaUtensils className="text-xl text-gray-500" />, title: "Recipe" },
   { icon: <FaHeart className="text-xl text-gray-500" />, title: "Donation" },
   { icon: <FaEllipsisH className="text-xl text-gray-500" />, title: "Others" },
@@ -130,6 +130,8 @@ const CommunityHub = () => {
   ]);
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
+  const [selectedFilter, setSelectedFilter] = useState("Trending");
+
   const onClickSideBarOption = (title: string) => {
     let updatedPosts: CommunityPost[] = [];
 
@@ -155,12 +157,14 @@ const CommunityHub = () => {
         break;
     }
 
+    setSelectedFilter(title);
     setFilteredPosts(updatedPosts);
   };
 
   const handleAddNewPost = (newPost: CommunityPost) => {
     setPosts([newPost, ...posts]);
     setFilteredPosts([newPost, ...posts]);
+    setSelectedFilter("Trending");
   };
 
   return (
@@ -169,6 +173,7 @@ const CommunityHub = () => {
         <NavBar />
         <div className="mx-auto my-10 p-4 w-10/12 grid grid-cols-4 bg-stone-100 rounded-3xl justify-center r align-middle">
           <CommunityHubSidebar
+            selectedFilter={selectedFilter}
             sidebarList={sidebarList}
             onClickSideBarOption={onClickSideBarOption}
           />
