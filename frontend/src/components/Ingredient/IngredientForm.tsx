@@ -1,6 +1,9 @@
 import { useState } from "react";
 
-const RecipeForm = () => {
+interface Props {
+  onSubmit: (ingredients: string[]) => void;
+}
+const RecipeForm = ({ onSubmit }: Props) => {
   const [ingredients, setIngredients] = useState(["", ""]);
 
   const handleIngredientChange = (index: number, value: string) => {
@@ -18,11 +21,6 @@ const RecipeForm = () => {
       newIngredients.splice(ingredients.length - 1, ingredients.length);
       setIngredients(newIngredients);
     }
-  };
-
-  const handleSubmit = () => {
-    // Handle the submission logic here
-    console.log("Submitted ingredients:", ingredients);
   };
 
   return (
@@ -58,7 +56,7 @@ const RecipeForm = () => {
         </button>
       </div>
       <button
-        onClick={handleSubmit}
+        onClick={()=>{onSubmit(ingredients)}}
         className=" px-3 py-2 mt-4 text-white text-xl font-extrabold  bg-green-500 rounded-md focus:outline-none hover:bg-green-600"
       >
         Submit
