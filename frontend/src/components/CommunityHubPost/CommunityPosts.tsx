@@ -47,21 +47,24 @@ const CommunityPosts = ({ posts, handleAddNewPost }: Props) => {
   };
 
   const getLabelStyles = (label: string): string => {
-    let backgroundColor, borderColor, textColor;
+    let backgroundColor, hoverBackgroundColor, borderColor, textColor;
 
     switch (label.toLowerCase()) {
       case "recipe":
         backgroundColor = "bg-orange-200";
+        hoverBackgroundColor = "hover:bg-orange-300";
         borderColor = "border-orange-700";
         textColor = "text-orange-700";
         break;
       case "donation":
         backgroundColor = "bg-blue-200";
+        hoverBackgroundColor = "hover:bg-blue-400";
         borderColor = "border-blue-700";
         textColor = "text-blue-700";
         break;
       default:
         backgroundColor = "bg-gray-200";
+        hoverBackgroundColor = "hover:bg-gray-300";
         borderColor = "border-gray-700";
         textColor = "text-gray-700";
     }
@@ -75,8 +78,7 @@ const CommunityPosts = ({ posts, handleAddNewPost }: Props) => {
       rounded-full
       ${borderColor}
       font-bold
-     
-  
+      ${hoverBackgroundColor}    
     `;
   };
 
