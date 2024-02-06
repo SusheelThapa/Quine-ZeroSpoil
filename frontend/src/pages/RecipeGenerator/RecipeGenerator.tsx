@@ -46,7 +46,22 @@ const RecipeGenerator = () => {
         <NavBar />
         <div className="grid grid-cols-2 my-20 h-[60vh] justify-center items-center align-middle">
           <IngredientForm onSubmit={handleSubmit} />
-          {loading ? <CircularLoader /> : <Recipe result={result} />}
+          {loading ? (
+            <CircularLoader />
+          ) : result != null ? (
+            <Recipe result={result} />
+          ) : (
+            <div className="flex flex-col gap-5 font-extrabold justify-center items-center text-center p-8 bg-white ">
+              <div className="text-5xl text-green-500 font-bold underline-offset-auto underline ">
+                Recipe Generator
+              </div>
+              <div className="text-gray-500 text-lg max-w-md mx-auto mt-4">
+                Discover the magic of flavors with our quick recipe generator.
+                Create delightful meals in no time and savor the culinary
+                experience!
+              </div>
+            </div>
+          )}
         </div>
       </Layout>
       <Footer />
