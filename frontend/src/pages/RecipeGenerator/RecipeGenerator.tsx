@@ -10,10 +10,13 @@ import { useState } from "react";
 const RecipeGenerator = () => {
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (ingredients: string[]): void => {
+  const handleSubmit = async (ingredients: string[]) => {
     console.log(ingredients);
     setLoading(true);
     // TODO: API CALL
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    setLoading(false);
   };
 
   return (
