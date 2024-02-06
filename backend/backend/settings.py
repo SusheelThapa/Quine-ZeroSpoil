@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,7 +82,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'api', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,7 +104,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'DATABASE',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -255,3 +256,16 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# settings.py
+
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with your SMTP server
+EMAIL_PORT = 587  # Replace with your SMTP server's port
+EMAIL_USE_TLS = True
+EMAIL_HOST_SSL = False
+EMAIL_HOST_USER = '077bct079.saurav@pcampus.edu.np'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'zfcpdghjfieredya'  # Replace with your email password
+DEFAULT_FROM_EMAIL = '077bct079.saurav@pcampus.edu.np'  # Replace with your default email
