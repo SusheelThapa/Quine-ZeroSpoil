@@ -26,7 +26,8 @@ const CommunityPosts = ({ posts, handleAddNewPost }: Props) => {
   const getPostAgeString = (providedDate: Date): string => {
     const currentDate = new Date();
 
-    const millisecondsPerMinute = 60 * 1000;
+    const millisecondsPerSecond = 1000;
+    const millisecondsPerMinute = 60 * millisecondsPerSecond;
     const millisecondsPerHour = 60 * millisecondsPerMinute;
     const millisecondsPerDay = 24 * millisecondsPerHour;
     const millisecondsPerWeek = 7 * millisecondsPerDay;
@@ -40,6 +41,7 @@ const CommunityPosts = ({ posts, handleAddNewPost }: Props) => {
     const days = Math.floor(timeDifference / millisecondsPerDay);
     const hours = Math.floor(timeDifference / millisecondsPerHour);
     const minutes = Math.floor(timeDifference / millisecondsPerMinute);
+    const seconds = Math.floor(timeDifference / millisecondsPerSecond);
 
     return years > 0
       ? `${years} year${years > 1 ? "s" : ""} ago`
@@ -51,7 +53,9 @@ const CommunityPosts = ({ posts, handleAddNewPost }: Props) => {
       ? `${days} day${days > 1 ? "s" : ""} ago`
       : hours > 0
       ? `${hours} hour${hours > 1 ? "s" : ""} ago`
-      : `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+      : minutes > 0
+      ? `${minutes} minute${minutes > 1 ? "s" : ""} ago`
+      : `${seconds} second${seconds > 1 ? "s" : ""} ago`;
   };
 
   const getLabelStyles = (label: string): string => {
