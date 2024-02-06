@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useToast } from "../ui/use-toast";
 
 interface Props {
   onSubmit: (ingredients: string[]) => void;
 }
 const RecipeForm = ({ onSubmit }: Props) => {
+  const { toast } = useToast();
+
   const [ingredients, setIngredients] = useState(["", ""]);
 
   const handleIngredientChange = (index: number, value: string) => {
@@ -56,7 +59,14 @@ const RecipeForm = ({ onSubmit }: Props) => {
         </button>
       </div>
       <button
-        onClick={()=>{onSubmit(ingredients)}}
+        onClick={() => {
+          toast({
+            variant: "recipe-generator",
+            description:
+              "😊 Your ingredients are magic! We'll be preparing a special recipe for you to try.",
+          });
+          onSubmit(ingredients);
+        }}
         className=" px-3 py-2 mt-4 text-white text-xl font-extrabold  bg-green-500 rounded-md focus:outline-none hover:bg-green-600"
       >
         Submit
