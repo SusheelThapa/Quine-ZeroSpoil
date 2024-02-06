@@ -6,30 +6,44 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { RecipeResponse } from "@/pages/RecipeGenerator/RecipeGenerator";
 
-const Recipe = () => {
+interface Props {
+  result: RecipeResponse | null;
+}
+const Recipe = ({ result }: Props) => {
   return (
     <div className="w-full flex justify-center items-center">
       <Carousel
         className="w-full max-w-lg bg-transparent "
         opts={{
           align: "start",
-          loop: true,
         }}
       >
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
-              <Card className="shadow-inner shadow-white  rounded-2xl h-96 flex justify-center items-center w-11/12 bg-gray-50">
-                <CardContent className=" px-2 py-5 flex  flex-col items-center justify-center gap-5 ">
-                  {index + 1}
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          ))}
+          {Array.from({ length: result?.instructions.length || 1 }).map(
+            (_, index) => (
+              <CarouselItem key={index}>
+                <Card className="shadow-inner shadow-white  rounded-[3rem] h-[26rem] flex justify-center items-center w-11/12 bg-gray-50">
+                  <CardContent className=" px-2 pb-10  flex text-2xl h-40  flex-col items-center justify-start gap-10 ">
+                    <div className="text-4xl text-blue-600 font-extrabold underline">
+                      Step {index + 1}
+                    </div>
+                    <div className="text-green-500 tracking-wider w-full text-center">
+                      {result?.instructions[index]}
+                    </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            )
+          )}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        {result && (
+          <>
+            <CarouselPrevious />
+            <CarouselNext />
+          </>
+        )}
       </Carousel>
     </div>
   );
