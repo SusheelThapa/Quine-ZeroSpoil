@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import {
   FaCalendarAlt,
   FaEnvelope,
@@ -93,20 +94,47 @@ const FoodDonationForm: React.FC = () => {
     </div>
   );
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/submit_contact_form/",
+        formData
+      );
+      
+      if (response.data.status === "success") {
+        // Form submitted successfully
+        console.log("Form submitted successfully");
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }finally{
+      setFormData(
+        {
+          fullName: "",
+          email: "",
+          phone: "",
+          pickupDate: "",
+          address: "",
+          termsChecked: false,
+        });
+    }
+  };
+
+
   const renderSubmitButton = () => (
     <button
       type="submit"
+      onClick={handleSubmit}
       className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring focus:border-green-300 text-lg"
     >
       Donate Food
     </button>
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Perform actions with the form data, e.g., send it to a server
-    console.log("Form submitted:", formData);
-  };
 
   return (
     <div className="bg-white p-8  mx-auto">

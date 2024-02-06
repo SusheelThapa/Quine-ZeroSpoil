@@ -9,7 +9,7 @@ import {
     TableRow,
 } from '@/components/ui/table';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
     AlertDialog,
     AlertDialogAction,
@@ -69,21 +69,23 @@ const ExpiryTrack: React.FC = () => {
 
 
     const handleDate = (startDate: Date, timeEnd: Date) => {
-        const newStartDate= new Date(startDate);
-        const newEndDate=new Date(timeEnd);
-        const one_day = 1000*60*60*24;
+        const newStartDate = new Date(startDate);
+        const newEndDate = new Date(timeEnd);
+        const one_day = 1000 * 60 * 60 * 24;
         let result
-        result = Math.ceil((newEndDate.getTime()-newStartDate.getTime())/(one_day))
+        result = Math.ceil((newEndDate.getTime() - newStartDate.getTime()) / (one_day))
         console.log('date Converter result', result)
-        if (result <= 7 ) {return ', expires in ' + result + ' days' }
-           
-      }
-    
+        if (result <= 7) { return ', expires in ' + result + ' days' }
+
+    }
+
 
 
     return (
         <>
-            <div className="px-60 pt-10 flex justify-center">
+
+
+            <div className="px-60 pt-10 flex justify-center ">
                 {/* Navigation menu */}
                 <div>
                     <ul className="flex gap-10 justify-start items-center font-medium">
@@ -98,12 +100,12 @@ const ExpiryTrack: React.FC = () => {
                 </div>
             </div>
 
-            <div className="px-60 py-10">
+            <div className="px-60 py-10 ">
                 <Table>
                     <TableHeader>
                         <TableRow>
                             <TableHead>Name</TableHead>
-                            <TableHead>Description</TableHead>
+                            {/* <TableHead>Description</TableHead> */}
                             <TableHead>Expiry Date</TableHead>
                             <TableHead>Purchase Date</TableHead>
                             <TableHead>Quantity</TableHead>
@@ -116,8 +118,8 @@ const ExpiryTrack: React.FC = () => {
                         {products.map((product) => (
                             <TableRow key={product.id}>
 
-                                <TableCell className="">{product.product_name}</TableCell>
-                                <TableCell>{product.description}</TableCell>
+                                <TableCell className=""><Link to={`/expiry-track/${product.id}`}>{product.product_name}</Link></TableCell>
+                                {/* <TableCell>{product.description}</TableCell> */}
                                 <TableCell>{product.expiry_date.toLocaleString()} <span className='text-sm text-red-400 mx-1'> {handleDate(product.purchase_date, product.expiry_date)} </span></TableCell>
 
                                 <TableCell>{product.purchase_date.toLocaleString()}</TableCell>
@@ -142,7 +144,7 @@ const ExpiryTrack: React.FC = () => {
                                             <AlertDialogFooter>
                                                 <AlertDialogCancel>Cancel</AlertDialogCancel>
                                                 <AlertDialogAction
-                                                onClick={() => handleRemove(product)} className='hover:bg-red-500'>Continue</AlertDialogAction>
+                                                    onClick={() => handleRemove(product)} className='hover:bg-red-500'>Continue</AlertDialogAction>
                                             </AlertDialogFooter>
                                         </AlertDialogContent>
                                     </AlertDialog>
@@ -154,6 +156,8 @@ const ExpiryTrack: React.FC = () => {
                     </TableBody>
                 </Table>
             </div>
+
+
         </>
     );
 };

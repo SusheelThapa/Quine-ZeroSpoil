@@ -39,3 +39,14 @@ class ExpiryTracker(models.Model):
 
     def __str__(self):
         return f"{self.product_name} - Expires on {self.expiry_date}"
+
+class DonateFood(models.Model):
+    fullName = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    pickupDate = models.DateField()
+    address = models.TextField()
+    termsChecked = models.BooleanField(default=False)  # Add this line
+
+    def __str__(self):
+        return self.email

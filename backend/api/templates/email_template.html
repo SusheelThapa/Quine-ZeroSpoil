@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation of Your Food Donation Form Submission - ZeroSpoil</title>
+    <style>
+        .text-3xl {
+            font-size: 1.1rem; /* Equivalent to Tailwind's text-3xl */
+            line-height: 1.1rem; /* Equivalent to Tailwind's leading-normal */
+            font-weight: 800; /* Equivalent to Tailwind's font-extrabold */
+        }
+
+        .text-green-500 {
+            color: #047857; /* Equivalent to Tailwind's text-green-500 */
+        }
+
+        .text-red-400 {
+            color: #EF4444; /* Equivalent to Tailwind's text-red-400 */
+        }
+    </style>
+</head>
+
+<body>
+    <p>Dear {{ user_data.fullName }},</p>
+    <p>Thank you for taking the time to fill out our food donation form on ZeroSpoil. We acknowledge receipt of your
+        submission and are grateful for your willingness to donate food to those in need.</p>
+    <p>Your generosity exemplifies the spirit of compassion and community that drives our mission at ZeroSpoil. By
+        sharing your excess food, you are not only helping to prevent waste but also making a meaningful difference in
+        the lives of others.</p>
+    <p>Our team will review the details of your donation form and reach out to you shortly to coordinate the next steps.
+        We may contact you to discuss pickup arrangements, provide additional information, or answer any questions you
+        may have.</p>
+    <p>Rest assured that your donation will go directly toward supporting individuals and families facing food
+        insecurity in our community. Together, we can work towards a world where everyone has access to nutritious food
+        and no one goes hungry.</p>
+    <p>Once again, thank you for your generosity and commitment to making a positive impact. We appreciate your support
+        and look forward to working together to reduce food waste and alleviate hunger.</p>
+    <p>Warm regards,</p>
+    <div class="text-3xl font-extrabold">
+        <span class="text-green-500">Zero</span>
+        <span class="text-red-400">Spoil</span>
+    </div>
+</body>
+
+</html>
