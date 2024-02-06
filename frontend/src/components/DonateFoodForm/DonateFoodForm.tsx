@@ -102,15 +102,7 @@ const FoodDonationForm: React.FC = () => {
         "http://localhost:8000/api/submit_contact_form/",
         formData
       );
-      setFormData(
-        {
-          fullName: "",
-          email: "",
-          phone: "",
-          pickupDate: "",
-          address: "",
-          termsChecked: false,
-        });
+      
       if (response.data.status === "success") {
         // Form submitted successfully
         console.log("Form submitted successfully");
@@ -118,6 +110,8 @@ const FoodDonationForm: React.FC = () => {
         console.error("Form submission failed");
       }
     } catch (error) {
+      console.error("Error submitting form:", error);
+    }finally{
       setFormData(
         {
           fullName: "",
@@ -127,7 +121,6 @@ const FoodDonationForm: React.FC = () => {
           address: "",
           termsChecked: false,
         });
-      console.error("Error submitting form:", error);
     }
   };
 
