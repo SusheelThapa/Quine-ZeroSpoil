@@ -1,11 +1,9 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
-    phone: "",
-    subject: "",
     message: "",
     agreeToPrivacyPolicy: false,
     agreeToTerms: false,
@@ -23,10 +21,32 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log("Form Data:", formData);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/contact_form/",
+        formData
+      );
+
+      if (response.data.status === "success") {
+        // Form submitted successfully
+        console.log("Form submitted successfully");
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setFormData(
+        {
+          email: "",
+          message: "",
+          agreeToPrivacyPolicy: false,
+          agreeToTerms: false,
+        });
+    }
   };
 
   return (
