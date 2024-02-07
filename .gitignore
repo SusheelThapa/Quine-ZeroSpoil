@@ -25,7 +25,6 @@ dist-ssr
 
 .venv
 .vit
-.yarn
 
-backend/api/__pycache__
-backend/backend/__pycache__
+__pycache__/
+.env

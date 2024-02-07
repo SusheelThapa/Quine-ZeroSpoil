@@ -14,8 +14,10 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
+from django.conf import settings
 import openai
-openai.api_key = "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"
+
+openai.api_key = settings.OPENAI_API_KEY
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
