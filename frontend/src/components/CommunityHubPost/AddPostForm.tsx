@@ -1,6 +1,7 @@
 import { CommunityPost } from "@/types";
 import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
+import { useToast } from "../ui/use-toast";
 interface Props {
   isFormActive: (bool: boolean) => void;
   handleAddNewPost: (newPost: CommunityPost) => void;
@@ -10,13 +11,14 @@ const AddPostForm = ({ isFormActive, handleAddNewPost }: Props) => {
   const [formData, setFormData] = useState<CommunityPost>({
     title: "",
     postedBy: "Susheel Thapa",
-    label: ['Recipe'],
+    label: ["Recipe"],
     description: "",
     likeCount: 0,
     commentCount: 0,
     postedOn: new Date(),
   });
   const [selectedLabel, setSelectedLabel] = useState<string>();
+  const { toast } = useToast();
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -108,6 +110,13 @@ const AddPostForm = ({ isFormActive, handleAddNewPost }: Props) => {
           </div>
 
           <button
+          onClick={() => {
+            toast({
+              variant: "community-post",
+              description:
+                "✅ Post Added Successfully! Check it out and engage with the community.",
+            });
+          }}
             type="submit"
             className="mt-3 text-xl bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg focus:outline-none"
           >

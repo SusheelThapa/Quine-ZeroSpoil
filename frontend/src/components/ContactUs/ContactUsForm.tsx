@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
+import { useToast } from "../ui/use-toast";
+import axios from 'axios';
+
 const ContactForm = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     email: "",
     message: "",
@@ -123,6 +127,13 @@ const ContactForm = () => {
         </div>
 
         <button
+          onClick={() => {
+            toast({
+              variant: "contact-us",
+              description:
+                "Thanks for contacting us! We appreciate your interest.🙌",
+            });
+          }}
           type="submit"
           className="w-full text-lg font-bold bg-[#ff8c00] text-white py-2 rounded-md hover:bg-[#f7941d] focus:outline-none focus:ring focus:border-[#f7941d]"
         >
