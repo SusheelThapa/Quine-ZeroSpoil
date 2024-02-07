@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -269,3 +270,6 @@ EMAIL_HOST_SSL = False
 EMAIL_HOST_USER = '077bct079.saurav@pcampus.edu.np'  # Replace with your email
 EMAIL_HOST_PASSWORD = 'zfcpdghjfieredya'  # Replace with your email password
 DEFAULT_FROM_EMAIL = '077bct079.saurav@pcampus.edu.np'  # Replace with your default email
+
+# Open Ai Key in environmental variable
+OPENAI_API_KEY = config('OPENAI_API_KEY')
