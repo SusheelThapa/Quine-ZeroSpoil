@@ -1,28 +1,27 @@
-import { useState } from "react";
-import { useToast } from "../ui/use-toast";
+import React from "react";
 
 interface Props {
-  onSubmit: (ingredients: string[]) => void;
+  ingredients: string[];
+  onIngredientChange: (index: number, value: string) => void;
+  handleSubmit: () => void;
 }
-const RecipeForm = ({ onSubmit }: Props) => {
-  const { toast } = useToast();
 
-  const [ingredients, setIngredients] = useState(["", ""]);
-
+const IngredientForm: React.FC<Props> = ({
+  ingredients,
+  onIngredientChange,
+  handleSubmit,
+}) => {
   const handleIngredientChange = (index: number, value: string) => {
-    const newIngredients = [...ingredients];
-    newIngredients[index] = value;
-    setIngredients(newIngredients);
+    onIngredientChange(index, value);
   };
 
   const handleAddIngredient = () => {
-    if (ingredients.length < 6) setIngredients([...ingredients, ""]);
+    if (ingredients.length < 6) onIngredientChange(ingredients.length, "");
   };
+
   const handleRemoveIngredient = () => {
     if (ingredients.length > 2) {
-      const newIngredients = [...ingredients];
-      newIngredients.splice(ingredients.length - 1, ingredients.length);
-      setIngredients(newIngredients);
+      onIngredientChange(ingredients.length - 1, "");
     }
   };
 
@@ -59,14 +58,7 @@ const RecipeForm = ({ onSubmit }: Props) => {
         </button>
       </div>
       <button
-        onClick={() => {
-          toast({
-            variant: "recipe-generator",
-            description:
-              "😊 Your ingredients are magic! We'll be preparing a special recipe for you to try.",
-          });
-          onSubmit(ingredients);
-        }}
+        onClick={handleSubmit}
         className=" px-3 py-2 mt-4 text-white text-xl font-extrabold  bg-green-500 rounded-md focus:outline-none hover:bg-green-600"
       >
         Submit
@@ -75,4 +67,4 @@ const RecipeForm = ({ onSubmit }: Props) => {
   );
 };
 
-export default RecipeForm;
+export default IngredientForm;
