@@ -21,6 +21,18 @@ const Recipe = ({ result }: Props) => {
         }}
       >
         <CarouselContent>
+          <CarouselItem>
+            <Card className="shadow-inner shadow-white  rounded-[3rem] h-[26rem] flex justify-center items-center w-11/12 bg-gray-50">
+              <CardContent className=" px-5  flex  py-3  flex-col items-center justify-center gap-5 ">
+                <div className="text-4xl text-blue-600 font-extrabold underline">
+                  Recipe Name
+                </div>
+                <div className="text-green-400 text-4xl tracking-wider w-full text-center font-extrabold">
+                  {result?.recipe}
+                </div>
+              </CardContent>
+            </Card>
+          </CarouselItem>
           {Array.from({ length: result?.instructions.length || 1 }).map(
             (_, index) => (
               <CarouselItem key={index}>
