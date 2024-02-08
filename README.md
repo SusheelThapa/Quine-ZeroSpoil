@@ -119,14 +119,50 @@ Before running, Quine-ZeroSpoil, you will need an OpenAI API key if the project 
 
 #### Backend
 
+1. Change directory to `backend`
+
+   ```bash
+   cd backend/
+   ```
+
+2. Installation of node packages
+
+   ```bash
+    pip install -r requirements.txt
+   ```
+
+3. Setting up .env in root backend folder for saving openai api key
+
+  - Create a .env file 
+    
+    ```bash 
+      # inside .env file
+      OPENAI_API_KEY=******************************* # Your key 
+    ```
+
+4. Running the project:
+
+   ```bash
+   python manage.py runserver
+   ```
+
+
 ## Dependencies
 
+### Frontend
 - Vite
 - React
 - React Router
 - React Icons
 - shadcn/ui
 - Tailwind CSS
+
+
+### Backend
+- Openai 
+- Django Rest Framework
+- django-jazzmin 
+- django-spectacular
 
 ## Contributing
 
