@@ -44,7 +44,7 @@ class ExpiryTrackerViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['POST'])
-def submit_contact_form(request):
+def donate_form(request):
     serializer = DonateFoodSerializer(data=request.data)
 
     if serializer.is_valid():
@@ -77,10 +77,34 @@ def submit_contact_form(request):
 
 
 @api_view(['POST'])
-def contact_form(request):
+def newsletter(request):
     # Extract data from the POST request
     user_data = request.data
 
+    # Constructing the email message with HTML content
+    email_subject = 'ZeroSpoil - Subscribed to Newsletter'
+
+    # Render HTML content with image
+    html_content = render_to_string('newsletter_email.html')
+    text_content = strip_tags(html_content)
+
+    # Sending the email with both HTML and plain text content
+    email = EmailMultiAlternatives(
+        email_subject,
+        text_content,
+        EMAIL_HOST_USER,  # Replace with the sender's email address
+        [user_data['email']]  # Replace with the recipient's email address
+    )
+    email.attach_alternative(html_content, "text/html")
+    email.send(fail_silently=False)
+
+    return JsonResponse({'status': 'success', 'message': 'Newsletter subscribed successfully'})
+
+@api_view(['POST'])
+def contact_form(request):
+    # Extract data from the POST request
+    user_data = request.data
+    print("Request reached to backend")
     # Constructing the email message with HTML content
     email_subject = 'ZeroSpoil - Contact Form Submission'
 
@@ -93,7 +117,7 @@ def contact_form(request):
         email_subject,
         text_content,
         EMAIL_HOST_USER,  # Replace with the sender's email address
-        user_data["email"]  # Replace with the recipient's email address
+        [user_data["email"]]  # Replace with the recipient's email address
     )
     email.attach_alternative(html_content, "text/html")
     email.send(fail_silently=False)

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-
 import { useToast } from "../ui/use-toast";
 
 const ContactForm = () => {
@@ -27,12 +26,19 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    toast({
+      variant: "contact-us",
+      description:
+        "Thanks for contacting us! We appreciate your interest.🙌",
+    });
+
     try {
       const response = await axios.post(
         "http://localhost:8000/api/contact_form/",
         formData
       );
 
+      // console.log("api call successful")
       if (response.data.status === "success") {
         // Form submitted successfully
         console.log("Form submitted successfully");
@@ -50,6 +56,8 @@ const ContactForm = () => {
           agreeToTerms: false,
         });
     }
+
+
   };
 
   return (

@@ -107,7 +107,7 @@ const FoodDonationForm: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/submit_contact_form/",
+        "http://localhost:8000/api/donate_form/",
         formData
       );
 
@@ -134,7 +134,7 @@ const FoodDonationForm: React.FC = () => {
   const renderSubmitButton = () => (
     <button
       type="submit"
-      onClick={handleSubmit}
+      // onClick={handleSubmit}
       className="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring focus:border-green-300 text-lg"
     >
       Donate Food
