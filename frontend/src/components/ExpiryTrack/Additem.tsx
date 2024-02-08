@@ -2,6 +2,8 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FaCalendar, FaProductHunt, FaCubes, FaInfoCircle } from 'react-icons/fa';
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 interface FormData {
     product_name: string;
@@ -113,6 +115,7 @@ const AddItem: React.FC = () => {
 
     return (
         <>
+            <NavBar />
             <div className="px-30 pt-10 flex justify-center">
                 {/* navigation menu */}
                 <div>
@@ -133,7 +136,7 @@ const AddItem: React.FC = () => {
                 </div>
             </div>
 
-            <div className="mx-80 mt-14">
+            <div className="mx-80 mt-14 mb-2">
                 <form onSubmit={handleSubmit}>
                     <ol className="grid gap-12">
                         <li className="grid gap-2">
@@ -261,6 +264,8 @@ const AddItem: React.FC = () => {
                     </button>
                 </form>
             </div>
+
+            <Footer />
         </>
     );
 };

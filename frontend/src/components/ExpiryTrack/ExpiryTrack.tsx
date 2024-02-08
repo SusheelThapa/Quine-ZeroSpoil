@@ -21,6 +21,8 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 
 
@@ -84,7 +86,7 @@ const ExpiryTrack: React.FC = () => {
     return (
         <>
 
-
+            <NavBar />
             <div className="px-60 pt-10 flex justify-center ">
                 {/* Navigation menu */}
                 <div>
@@ -156,6 +158,8 @@ const ExpiryTrack: React.FC = () => {
                     </TableBody>
                 </Table>
             </div>
+
+            <Footer />
 
 
         </>

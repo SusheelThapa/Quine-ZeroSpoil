@@ -20,14 +20,14 @@ const RecipeGenerator = () => {
     try {
       setLoading(true);
 
-      console.log(ingredients);
+      // console.log(ingredients);
 
       // Simulating an API call delay (replace this with your actual API call logic)
       const response = await axios.post(
         "http://localhost:8000/api/get_recipe/",
         ingredients
       )
-      console.log(response.data)
+      // console.log(response.data)
       let temp  = JSON.parse(response.data)
 
       // Simulated API response data (replace this with your actual API response data)
