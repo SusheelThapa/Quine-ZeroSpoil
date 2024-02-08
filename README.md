@@ -1,4 +1,3 @@
-# <p align="center">Quine-ZeroSpoil</p>
 
 <p align="center">
     <img src="https://github.com/SusheelThapa/Quine-ZeroSpoil/assets/83917129/a2ebaf07-7d4c-4071-8e55-8ec104e397cc" width=300 />
