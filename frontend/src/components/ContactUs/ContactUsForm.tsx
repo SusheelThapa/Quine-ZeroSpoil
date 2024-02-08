@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from 'axios';
 
 import { useToast } from "../ui/use-toast";
-import axios from 'axios';
 
 const ContactForm = () => {
   const { toast } = useToast();
