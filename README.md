@@ -1,8 +1,5 @@
-# <p align="center">Quine-ZeroSpoil</p>
+# <p align="center"><img src="https://github.com/SusheelThapa/Quine-ZeroSpoil/assets/83917129/a2ebaf07-7d4c-4071-8e55-8ec104e397cc" width=300 /></p>
 
-<p align="center">
-    <img src="https://github.com/SusheelThapa/Quine-ZeroSpoil/assets/83917129/a2ebaf07-7d4c-4071-8e55-8ec104e397cc" width=300 />
-</p>
 <p align="center">
     <p align="center">
         <a href="https://github.com/SusheelThapa/Quine-ZeroSpoil/" target="blank">
@@ -85,7 +82,7 @@
 
 ## Demo
 
-We will be uploading demo video soon
+[ZeroSpoil Project Demo Video](https://github.com/SusheelThapa/Quine-ZeroSpoil/assets/83917129/c710915f-e47b-4d0f-939e-123d888ebd66)
 
 ## Installation
 
@@ -171,7 +168,7 @@ Before running, Quine-ZeroSpoil, you will need an OpenAI API key if the project 
 
 ## Contributing
 
-We welcome contributions to enhance and improve [Quine-ZeroSpoil](Contributing.md)! Feel free to submit issues, feature requests, or pull requests. Please adhere to our Code of Conduct.
+We welcome contributions to enhance and improve [Quine-ZeroSpoil](CONTRIBUTING.md)! Feel free to submit issues, feature requests, or pull requests. Please adhere to our Code of Conduct.
 
 ## License
 
